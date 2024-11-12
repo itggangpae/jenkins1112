@@ -8,7 +8,7 @@ pipeline{
     stages{
         stage("Print"){
             steps{
-                echo '${env.BUILD_ID}'
+                echo ${env.BUILD_ID}
             }
         }
 
