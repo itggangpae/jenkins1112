@@ -61,7 +61,7 @@ pipeline{
 
          stage("docker image build"){
             steps{
-                sh 'docker build -t ggnagpae1/jenkins1112:latest .'
+                sh "docker build -t ggnagpae1/jenkins1112:${env.BUILD_ID} ."
             }
          }
 
@@ -73,7 +73,7 @@ pipeline{
 
          stage('docker hub push'){
             steps{
-                sh 'docker push ggnagpae1/jenkins1112:latest'
+                sh "docker push ggnagpae1/jenkins1112:${env.BUILD_ID}"
             }
          }
 
