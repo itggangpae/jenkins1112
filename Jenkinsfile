@@ -55,7 +55,7 @@ pipeline{
 
          stage("docker image build"){
             steps{
-                sh 'docker build -t ggnagpae1/jenkins1112 .'
+                sh 'docker build -t ggnagpae1/jenkins1112:latest .'
             }
          }
 
@@ -64,5 +64,14 @@ pipeline{
                 sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
             }
          }
+
+         stage('docker hub push'){
+            steps{
+                sh 'docker push ggnagpae1/jenkins1112:latest'
+            }
+         }
+
+
+
     }
 }
