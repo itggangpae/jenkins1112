@@ -1,5 +1,10 @@
 pipeline{
     agent any
+
+    environment{
+        DOCKERHUB_CREDENTIALS = "docker-hub"
+    }
+
     stages{
         stage("Set Variables"){
             steps{
@@ -62,7 +67,13 @@ pipeline{
 
          stage("docker image build"){
             steps{
-                sh 'docker build -t jenkins1112 .'
+                sh 'docker build -t ggnagpae1/jenkins1112 .'
+            }
+         }
+
+         stage('docker hub login'){
+            steps{
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW' | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
             }
          }
     }
