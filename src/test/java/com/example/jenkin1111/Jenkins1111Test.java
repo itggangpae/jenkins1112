@@ -11,6 +11,6 @@ public class Jenkins1111Test {
 
     @Test
     public void testService(){
-        assertEquals(2, calculator.sum(1, 2));
+        assertEquals(5, calculator.sum(1, 2));
     }
 }
