@@ -79,7 +79,7 @@ pipeline{
 
          stage('deploy'){
             steps{
-                sh "docker run -d --rm 8765:8080 jenkins1112 ggnagpae1/jenkins1112"
+                sh "docker run -d --rm -p 8765:8080 --name jenkins1112 ggnagpae1/jenkins1112"
             }
         }
 
