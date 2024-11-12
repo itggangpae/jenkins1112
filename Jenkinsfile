@@ -90,5 +90,10 @@ pipeline{
             }
          }
 
+        stage('clean up'){
+            steps{
+                sh 'docker stop jenkins1112'
+            }
+         }
     }
 }
