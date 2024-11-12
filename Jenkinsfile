@@ -94,6 +94,12 @@ pipeline{
             steps{
                 sh 'docker stop jenkins1112'
             }
-         }
+        }
+    }
+
+    post{
+        always{
+            echo "finalize"
+        }
     }
 }
