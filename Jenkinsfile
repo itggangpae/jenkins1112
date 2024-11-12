@@ -6,6 +6,12 @@ pipeline{
     }
 
     stages{
+        stage("Print"){
+            steps{
+                echo '${env.BUILD_ID}'
+            }
+        }
+
         stage("Permission"){
             steps{
                 sh "chmod +x ./gradlew"
@@ -55,7 +61,7 @@ pipeline{
 
          stage("docker image build"){
             steps{
-                sh 'docker build -t ggnagpae1/jenkins1112:${env.BUILD_ID} .'
+                sh 'docker build -t ggnagpae1/jenkins1112:latest .'
             }
          }
 
@@ -67,7 +73,7 @@ pipeline{
 
          stage('docker hub push'){
             steps{
-                sh 'docker push ggnagpae1/jenkins1112:${env.BUILD_ID}'
+                sh 'docker push ggnagpae1/jenkins1112:latest'
             }
          }
 
